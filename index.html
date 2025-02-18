@@ -16,10 +16,10 @@
   </head>
   <body class="skip-transition">
     <main>
-      <h3 id="color">rgb(255, 255, 255)</h3>
+      <p id="rgb">rgb(255, 255, 255)</p>
     </main>
     <script>
-      const COLOR_TEXT_NODE = document.getElementById("color");
+      const RGB_TEXT_NODE = document.getElementById("rgb");
 
       // 32-bit version of splitmix64 PRNG (see https://xoshiro.di.unimi.it/splitmix64.c)
       // https://stackoverflow.com/a/47593316
@@ -52,15 +52,9 @@
 
         const rgbPadded = rgb.map((c) => String(c).padStart(3, "0"));
         const rgbStr = `rgb(${rgbPadded.join(", ")})`;
-        document.body.style.backgroundColor = rgbStr;
-        COLOR_TEXT_NODE.textContent = rgbStr;
 
-        // http://www.w3.org/TR/AERT#color-contrast
-        const brightness = Math.round(
-          (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000
-        );
-        COLOR_TEXT_NODE.style.color =
-          brightness > 125 ? "rgb(0,0,0)" : "rgb(255,255,255)";
+        document.body.style.backgroundColor = rgbStr;
+        RGB_TEXT_NODE.textContent = rgbStr;
       };
 
       const init = () => {
