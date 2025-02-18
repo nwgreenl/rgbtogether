@@ -7,16 +7,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
     <link rel="stylesheet" href="styles.css" />
     <title>rgb together</title>
   </head>
   <body class="skip-transition">
     <main>
-      <p id="rgb">rgb(255, 255, 255)</p>
+      <a id="rgb" href="https://spektran.com/rgb/255,255,255" target="_blank">rgb(255, 255, 255)</a>
     </main>
     <script>
       const RGB_TEXT_NODE = document.getElementById("rgb");
@@ -55,6 +52,7 @@
 
         document.body.style.backgroundColor = rgbStr;
         RGB_TEXT_NODE.textContent = rgbStr;
+        RGB_TEXT_NODE.setAttribute("href", `https://spektran.com/rgb/${rgb}`);
         console.info(rgbStr);
       };
 
